@@ -1,0 +1,53 @@
+
+<div class="container-fluid">
+  <table class="table table-hover">
+    <thead  class="table-warning">
+      <td><b>Sl.No</b></td>
+      <td><b>Title</b></td>
+      <td><b>Url</b></td>
+      <td><b>Created_at</b></td>
+      <td><b>Author</b></td>
+      <td><b>Select</b></td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of getdata;let i=index">
+        <td>{{i+1}}</td>
+        <td>{{d.title}}</td>
+        <td>{{d.url}}</td>
+        <td>{{d.created_at}}</td>
+        <td>{{d.author}}</td>
+         <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" 
+          (click)="viewmodal(d)">Click</button></td> 
+      </tr>
+    </tbody>
+    </table>
+  </div>
+    <div class="modal" id="myModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Modal Heading</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+            <div class="modal-body">
+              <table class="table">
+                <tr class="table-info">
+                <th>Url</th>
+                <th>Author</th>
+                <th>Created_at</th>
+                <th>Title</th>
+              </tr>
+              <tr>
+                <td>{{modaldata.url}}</td>
+                <td>{{modaldata.author}}</td>
+                <td>{{modaldata.created_at}}</td>
+                <td>{{modaldata.title}}</td>
+              </tr>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      
